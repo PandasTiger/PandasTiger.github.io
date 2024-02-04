@@ -11,14 +11,15 @@
         align-items: center;
         flex-direction: column;
         height: 100vh;
-        background-color: #f0f0f0;
+        background-color: #f2e2d8;
       }
 
       #gif {
         display: block;
       }
       #true,
-      #false {
+      #false,
+      #next {
         font-size: 16px;
         padding: 10px 20px;
         margin: 10px;
@@ -27,36 +28,123 @@
         color: white;
         border: none;
         border-radius: 5px;
+        text-align: center;
       }
     </style>
   </head>
   <body>
+    <audio autoplay loop src="Akad.mp3"></audio>
     <img id="gif" src="doggo.gif" alt="GIF" width="300" height="300" />
-    <h1>Will you be my valentine 🫶🏻🫶🏻?</h1>
+    <h1 id="message"></h1>
     <button id="true">YES</button>
     <button id="false">No, u are too ugly</button>
+    <button id="next">Start</button>
     <div id="message"></div>
     <script>
       const trueButton = document.getElementById("true");
       const falseButton = document.getElementById("false");
       const messageDiv = document.getElementById("message");
-      let falseButtonTexts = ["No, you are ugly!", "Don't be so rude", "Ayo lah :(", "Pleaseeee", "plisplisplisplis"];
+      const nextButton = document.getElementById("next");
+      const gif = document.getElementById("gif");
+      let falseButtonTexts = ["Ga ah lo gaseru git!", "Cmon, Don't be so rude :(", "Ayo lah :(", "Pleaseeee", "plisplisplisplis"];
       let buttonSize = 16;
       let falseClickCount = 0;
+      let nextClickCount = 0;
+      falseButton.style.display = "none";
+      trueButton.style.display = "none";
+      gif.style.display = "none";
 
+      nextButton.onclick = () => {
+        if (nextClickCount === 0) {
+          gif.style.display = "block";
+          gif.src = "bearhi.gif";
+          messageDiv.innerHTML = "<p>Hai Made Widya Aryanthi Rahayu, how's your day been?</p>";
+          nextButton.textContent = "Next";
+          nextClickCount++;
+        } else if (nextClickCount === 1) {
+          gif.style.display = "block";
+          gif.src = "dogsmile.gif";
+          nextButton.textContent = "Next";
+          messageDiv.innerHTML = "<p>I hope your day has been great, if you have any difficulties you can askkk for my helpp okeyy? I will spare my time for you, anytimee with anythingg you need. I'll be there</p>";
+          nextClickCount++;
+        } else if (nextClickCount === 2) {
+          gif.style.display = "block";
+          gif.src = "pandashy.gif";
+          nextButton.textContent = "Next";
+          messageDiv.innerHTML = "<p>Aduh maaff yaa kalau inii agak alaayyy hehehe but i hope you like it. (Malu banget pls)</p>";
+          nextClickCount++;
+        } else if (nextClickCount === 3) {
+          gif.style.display = "block";
+          gif.src = "momoa.gif";
+          nextButton.textContent = "Next";
+          messageDiv.innerHTML = "<p>I know we've only known eachother for a few weeks, not even a month but I like you a lot, and I think it's clear from the way I act towards you hehe</p>";
+          nextClickCount++;
+        } else if (nextClickCount === 4) {
+          gif.style.display = "block";
+          gif.src = "buaya.gif";
+          nextButton.textContent = "Next";
+          messageDiv.innerHTML = "<p>Iyaaa tauu deee lo pasti mikirnyaa gw kedengeran kaya cowo cowo bambel ato buayaa kann hahahhaha, tp beneran deh gw gatau cara mengungkapkan dengan cara atau kata kata lainn wkwkwkwk</p>";
+          nextClickCount++;
+        } else if (nextClickCount === 5) {
+          gif.style.display = "block";
+          gif.src = "lope.gif";
+          nextButton.textContent = "Next";
+          messageDiv.innerHTML = "<p>But that's what I feel towards you currently hehehe</p>";
+          nextClickCount++;
+        } else if (nextClickCount === 6) {
+          gif.style.display = "block";
+          gif.src = "think.gif";
+          nextButton.textContent = "Next";
+          messageDiv.innerHTML = "<p>Sekarang adalah tanggal 7 dan 7 hari dari sekarang adalah tanggal penyoblosan capres dan cawapres</p>";
+          nextClickCount++;
+        } else if (nextClickCount === 7) {
+          gif.style.display = "block";
+          gif.src = "choose.gif";
+          nextButton.textContent = "Next";
+          messageDiv.innerHTML = "<p>So widya, who will you choose? dan sertakan alesannya</p>";
+          nextClickCount++;
+        } else if (nextClickCount === 8) {
+          gif.style.display = "block";
+          gif.src = "rudigong.gif";
+          nextButton.textContent = "Next";
+          messageDiv.innerHTML = "<p>wkwkkwkwkk candaa candaa, next dlu dongg</p>";
+          nextClickCount++;
+        } else if (nextClickCount === 9) {
+          gif.style.display = "block";
+          gif.src = "doggo.gif";
+          falseButton.style.display = "block";
+          trueButton.style.display = "block";
+          nextButton.style.display = "none";
+          messageDiv.innerHTML = "<p> Made Widya Aryanthi Rahayu, Will you be my valentine 🫶🏻🫶🏻??</p>";
+          nextClickCount++;
+        } else if (nextClickCount === 10) {
+          gif.style.display = "block";
+          gif.src = "doggo.gif";
+          nextButton.textContent = "Next";
+          messageDiv.innerHTML = "<p>Jujur gw mikir mikir mau kirim ini ke lo ato ga, gw maluuuu, takut dikira lebay</p>";
+          nextClickCount++;
+        } else if (nextClickCount == 11) {
+          gif.style.display = "block";
+          gif.src = "doggo.gif";
+          messageDiv.innerHTML = "<p>Tell me your answer on whatsapp jugaa yaaa, kita bahas kapannyaa (kalo lo jawab iya hehe) </p>";
+          nextButton.style.display = "none";
+        }
+      };
       falseButton.onclick = () => {
         if (falseClickCount < falseButtonTexts.length) {
           falseButton.textContent = falseButtonTexts[falseClickCount++];
         } else {
           falseClickCount = 0; // Reset or keep at max
         }
-        buttonSize += 65; // Increase font size for 'true' button
+        buttonSize += 80; // Increase font size for 'true' button
         trueButton.style.fontSize = `${buttonSize}px`;
       };
 
       trueButton.onclick = () => {
         trueButton.style.display = "none";
         falseButton.style.display = "none";
+        nextButton.style.display = "block";
+        nextButton.textContent = "Next";
         messageDiv.innerHTML = "<p>YEAYYYY, Suksmaaaa. (Tidak ada unsur pemaksaan)</p>";
         falseButton.textContent = "False";
         falseClickCount = 0;
